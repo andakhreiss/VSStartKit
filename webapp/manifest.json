@@ -11,7 +11,7 @@
       },
       "dataSources": {
         "booksService": {
-          "uri": "/sap/opu/odata/SAP/ZANDATEST_SRV/",
+          "uri": "/sap/opu/odata/sap/zbooks_ka_srv/",
           "type": "OData",
           "settings": {
             "odataVersion": "2.0"

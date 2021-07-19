@@ -23,8 +23,8 @@ module.exports = function(grunt) {
                 port: '9555'
 			},
             proxy: {
-                host: 'bcsw-sap078.mymhp.net',
-                port: '8000'
+                host: 'itsapl0288.mymhp.net',
+                port: '50100'
             }
 		},
 		
@@ -127,11 +127,11 @@ module.exports = function(grunt) {
 				options: {
 					/*I42*/
                     conn: {
-						client: '001',
-						server: 'http://bcsw-sap078.mymhp.net:8000/',
+						client: '700',
+						server: 'http://itsapl0288.mymhp.net:50100/',
                         // transportRequest: 'I42K902395',
                         useStrictSSL: false,
-                        port: 8000
+                        port: 50100
                     },
 					auth: {
 						user: sUser,
