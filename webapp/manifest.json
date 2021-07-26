@@ -56,6 +56,30 @@
               "defaultBindingMode": "TwoWay"
             }
           }
+      },
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
+          "viewType": "XML",
+          "async": true,
+          "viewPath": "org.ubb.books.view",
+          "controlAggregation": "pages",
+          "controlId": "app",
+          "clearControlAggregation": false
+        },
+        "routes": [{
+          "name": "BookList",
+          "pattern": "",
+          "target": ["BookList"]
+        }],
+        "targets": {
+          "BookList": {
+            "viewType": "XML",
+            "viewId": "BookList",
+            "viewName": "BookList",
+            "viewLevel": 1
+          }
+        }
       }
     }
   }
