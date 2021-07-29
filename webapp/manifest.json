@@ -1,22 +1,13 @@
 {
     "_version": "1.12.0",
     "sap.app": {
-      "id": "org.ubb.books",
+      "id": "sap.ui.demo.walkthrough",
       "type": "application",
       "i18n": "i18n/i18n.properties",
       "title": "{{appTitle}}",
       "description": "{{appDescription}}",
       "applicationVersion": {
         "version": "1.0.0"
-      },
-      "dataSources": {
-        "booksService": {
-          "uri": "/sap/opu/odata/sap/zbooks_ka_srv/",
-          "type": "OData",
-          "settings": {
-            "odataVersion": "2.0"
-          }
-        }
       }
     },
     "sap.ui": {
@@ -29,7 +20,7 @@
     },
     "sap.ui5": {
       "rootView": {
-          "viewName": "org.ubb.books.view.App",
+          "viewName": "sap.ui.demo.walkthrough.view.App",
           "type": "XML",
           "async": true,
           "id": "app"
@@ -40,46 +31,62 @@
           "sap.m": {}
         }
       },
+      "contentDensities": {
+        "compact": true,
+        "cozy": true
+      },
       "models": {
         "i18n": {
           "type": "sap.ui.model.resource.ResourceModel",
           "settings": {
-            "bundleName": "org.ubb.books.i18n.i18n"
+            "bundleName": "sap.ui.demo.walkthrough.i18n.i18n",
+            "supportedLocales": [""],
+            "fallbackLocale": ""
           }
         },
-        "": {
-            "dataSource": "booksService",
-            "settings": {
-              "metadataUrlParams": {
-                "sap-documentation": "heading"
-              },
-              "defaultBindingMode": "TwoWay"
-            }
+        "invoice": {
+          "type": "sap.ui.model.json.JSONModel",
+          "uri": "Invoices.json"
           }
       },
       "routing": {
         "config": {
-          "routerClass": "sap.m.routing.Router",
-          "viewType": "XML",
-          "async": true,
-          "viewPath": "org.ubb.books.view",
-          "controlAggregation": "pages",
-          "controlId": "app",
-          "clearControlAggregation": false
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "sap.ui.demo.walkthrough.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
         },
-        "routes": [{
-          "name": "BookList",
+        "routes": [
+        {
           "pattern": "",
-          "target": ["BookList"]
-        }],
-        "targets": {
-          "BookList": {
-            "viewType": "XML",
-            "viewId": "BookList",
-            "viewName": "BookList",
-            "viewLevel": 1
-          }
+          "name": "overview",
+          "target": "overview"
+        },
+        {
+          "pattern": "detail/{invoicePath}",
+          "name": "detail",
+          "target": "detail"
         }
+        ],
+        "targets": {
+        "overview": {
+          "viewId": "overview",
+          "viewName": "Overview"
+        },
+        "detail": {
+          "viewId": "detail",
+          "viewName": "Detail"
+        }
+        }
+      },
+      "resources": {
+        "css": [
+          {
+            "uri": "css/style.css"
+          }
+        ]
       }
     }
   }
